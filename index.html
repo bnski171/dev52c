@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимированный лендинг</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .image {
+            width: 152px;
+            height: 67px;
+            margin: 0 auto 20px;
+            animation: levitate 3s ease-in-out infinite;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            animation: glow 2s ease-in-out 2;
+        }
+        @keyframes levitate {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px #fff; }
+            50% { box-shadow: 0 0 20px #fff, 0 0 30px #fff; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="img/logo.png" alt="Изображение" class="image">
+        <h2>Связаться с нами</h2>
+        <a href="https://t.me/your_telegram_account" class="button" target="_blank">Мы в Телеграме</a>
+        <a href="https://t.me/your_telegram_channel" class="button" target="_blank">Портфолио</a>
+        <h2>Ждем Вас!</h2>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            setTimeout(() => {
+                document.querySelector('.image').style.display = 'block';
+                document.querySelectorAll('.button').forEach(button => {
+                    button.style.display = 'inline-block';
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
